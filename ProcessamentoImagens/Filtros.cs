@@ -287,11 +287,11 @@ namespace ProcessamentoImagens
 
                     if ((r + g + b) < 382)
                     {
-                        newcolor = Color.White;
+                        newcolor = Color.Black;
                     }
                     else
                     {
-                        newcolor = Color.Black;
+                        newcolor = Color.White;
                     }
 
                     imageBitmapDest.SetPixel(x, y, newcolor);
@@ -761,7 +761,14 @@ namespace ProcessamentoImagens
         {
             int width = Origem.Width;
             int height = Origem.Height;
-            
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Destino.SetPixel(x, y, Color.White);
+                }
+            }
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
@@ -784,9 +791,61 @@ namespace ProcessamentoImagens
                                 // Verifica se o novo pixel está dentro dos limites da imagem
                                 if (newX >= 0 && newX < width && newY >= 0 && newY < height)
                                 {
-                                    Destino.SetPixel(newX, newY, Color.Red);
+                                    Destino.SetPixel(newX, newY, Color.Black);
                                 }
                             }
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void ErosaoSemDMA(Bitmap Origem, Bitmap Destino)
+        {
+            int width = Origem.Width;
+            int height = Origem.Height;
+            int r, g, b;
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Destino.SetPixel(x, y, Color.White);
+                }
+            }
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Color pixel = Origem.GetPixel(x, y);
+
+                    r = pixel.R;
+                    g = pixel.G;
+                    b = pixel.B;
+
+                    if (r + g + b < 382)
+                    {
+                        bool aprovado = true;
+                        for (int dy = -1; dy <= 1 && aprovado; dy++)
+                        {
+                            for (int dx = -1; dx <= 1 && aprovado; dx++)
+                            {
+                                int newX = x + dx;
+                                int newY = y + dy;
+                                Color pixelAux = Origem.GetPixel(newX,newY);
+                                r = pixelAux.R;
+                                g = pixelAux.G;
+                                b = pixelAux.B;
+                                if (r+g+b>382)
+                                {
+                                    aprovado = false;
+                                }
+                            }
+                        }
+                        if (aprovado) 
+                        {
+                            Destino.SetPixel(x, y, Color.Black);
                         }
                     }
                 }

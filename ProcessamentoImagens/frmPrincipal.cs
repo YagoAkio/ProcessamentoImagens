@@ -245,17 +245,30 @@ namespace ProcessamentoImagens
 
         private void erosãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Bitmap imgDest = new Bitmap(image.Width,image.Height);
+            imageBitmap = (Bitmap)image;
+            Filtros.ErosaoSemDMA(imageBitmap, imgDest);
+            pictBoxImg1.Image = imgDest;
         }
 
         private void aberturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
+            Bitmap erosao = new Bitmap(image.Width, image.Height);
+            imageBitmap = (Bitmap)image;
+            Filtros.ErosaoSemDMA(imageBitmap, erosao);
+            Bitmap aberto = new Bitmap(image);
+            Filtros.DilatacaoSemDMA(erosao, aberto);
+            pictBoxImg1.Image = aberto;
+        }   
 
         private void fechamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Bitmap Dilatacao = new Bitmap(image.Width, image.Height);
+            imageBitmap = (Bitmap)image;
+            Filtros.DilatacaoSemDMA(imageBitmap, Dilatacao);
+            Bitmap fechamento = new Bitmap(image);
+            Filtros.ErosaoSemDMA(Dilatacao, fechamento);
+            pictBoxImg1.Image = fechamento;
         }
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -292,6 +305,26 @@ namespace ProcessamentoImagens
             else
             {
                 MessageBox.Show("Nenhuma imagem carregada para salvar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void maisConfiguracaoDaImagem_RightClick(object sender, MouseEventArgs e)
+        {
+            // Verifica se o botão direito do mouse foi clicado
+            if (e.Button == MouseButtons.Right)
+            {
+                // Cria uma instância do FormConfiguracoes
+                
             }
         }
     }
