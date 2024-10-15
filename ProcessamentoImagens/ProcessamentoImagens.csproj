@@ -53,10 +53,19 @@
     <Compile Include="frmPrincipal.designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModalConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModalConfig.Designer.cs">
+      <DependentUpon>ModalConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModalConfig.resx">
+      <DependentUpon>ModalConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

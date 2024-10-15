@@ -324,7 +324,11 @@ namespace ProcessamentoImagens
             if (e.Button == MouseButtons.Right)
             {
                 // Cria uma instância do FormConfiguracoes
-                
+                using (ModalConfig form = new ModalConfig())
+                {
+                    // Exibe o formulário como modal
+                    form.ShowDialog();
+                }
             }
         }
     }
