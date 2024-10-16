@@ -14,6 +14,9 @@ namespace ProcessamentoImagens
         private Image image;
         private Bitmap imageBitmap;
 
+        private bool isDragging = false;
+        private Point startPoint = new Point(0, 0);
+
         public btnEspelharDiagonal()
         {
             InitializeComponent();
@@ -320,15 +323,85 @@ namespace ProcessamentoImagens
 
         private void maisConfiguracaoDaImagem_RightClick(object sender, MouseEventArgs e)
         {
-            // Verifica se o botão direito do mouse foi clicado
-            if (e.Button == MouseButtons.Right)
+            //// Verifica se o botão direito do mouse foi clicado
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    //// Cria uma instância do FormConfiguracoes
+            //    //using (ModalConfig form = new ModalConfig())
+            //    //{
+            //    //    // Exibe o formulário como modal
+
+            //    //    form.TopMost = true;
+
+            //    //    form.ShowDialog();
+                    
+            //    //}
+            //}
+        }
+
+        private void dividirATelaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void abrirModaisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Suponha que você já tenha uma imagem carregada, por exemplo:
+
+            // Cria uma instância do modal formImagem
+            formImagem form = new formImagem();
+
+            // Passa a imagem para o modal antes de exibi-lo
+            form.CarregarImagem(image);
+
+            // Exibe o modal
+            form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnJanelar_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
             {
-                // Cria uma instância do FormConfiguracoes
-                using (ModalConfig form = new ModalConfig())
-                {
-                    // Exibe o formulário como modal
-                    form.ShowDialog();
-                }
+                this.WindowState = FormWindowState.Normal; // Altera o estado para janela normal
+            }
+            else
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized; // Altera o estado para janela normal
+            }
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && this.WindowState == FormWindowState.Normal)
+            {
+                isDragging = true; // Marca que o arrasto começou
+                startPoint = new Point(e.X, e.Y); // Armazena a posição inicial do mouse
+            }
+        }
+
+        // Evento MouseMove - Move a janela
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                // Calcula a nova posição da janela com base no movimento do mouse
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
+            }
+        }
+
+        // Evento MouseUp - Encerra o arrasto
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && this.WindowState == FormWindowState.Normal)
+            {
+                isDragging = false; // O arrasto terminou
             }
         }
     }

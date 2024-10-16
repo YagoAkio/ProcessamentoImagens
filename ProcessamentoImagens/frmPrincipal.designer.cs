@@ -70,8 +70,12 @@
             this.erosãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aberturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fechamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exibirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dividirATelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirModaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnJanelar = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.pictBoxImg1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxImg1)).BeginInit();
@@ -88,7 +92,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivoToolStripMenuItem,
             this.ferramentasToolStripMenuItem,
-            this.morfologiaToolStripMenuItem});
+            this.morfologiaToolStripMenuItem,
+            this.exibirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
@@ -96,6 +101,9 @@
             this.menuStrip1.TabIndex = 130;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.menuStrip1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.menuStrip1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             // 
             // arquivoToolStripMenuItem
             // 
@@ -404,6 +412,30 @@
             this.fechamentoToolStripMenuItem.Text = "Fechamento";
             this.fechamentoToolStripMenuItem.Click += new System.EventHandler(this.fechamentoToolStripMenuItem_Click);
             // 
+            // exibirToolStripMenuItem
+            // 
+            this.exibirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dividirATelaToolStripMenuItem,
+            this.abrirModaisToolStripMenuItem});
+            this.exibirToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.exibirToolStripMenuItem.Name = "exibirToolStripMenuItem";
+            this.exibirToolStripMenuItem.Size = new System.Drawing.Size(48, 22);
+            this.exibirToolStripMenuItem.Text = "Exibir";
+            // 
+            // dividirATelaToolStripMenuItem
+            // 
+            this.dividirATelaToolStripMenuItem.Name = "dividirATelaToolStripMenuItem";
+            this.dividirATelaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.dividirATelaToolStripMenuItem.Text = "Dividir a tela";
+            this.dividirATelaToolStripMenuItem.Click += new System.EventHandler(this.dividirATelaToolStripMenuItem_Click);
+            // 
+            // abrirModaisToolStripMenuItem
+            // 
+            this.abrirModaisToolStripMenuItem.Name = "abrirModaisToolStripMenuItem";
+            this.abrirModaisToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.abrirModaisToolStripMenuItem.Text = "Abrir Modais";
+            this.abrirModaisToolStripMenuItem.Click += new System.EventHandler(this.abrirModaisToolStripMenuItem_Click);
+            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -422,24 +454,43 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // button2
+            // btnJanelar
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1230, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(25, 25);
-            this.button2.TabIndex = 132;
-            this.button2.Text = "-";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnJanelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnJanelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnJanelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnJanelar.FlatAppearance.BorderSize = 0;
+            this.btnJanelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJanelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJanelar.ForeColor = System.Drawing.Color.White;
+            this.btnJanelar.Location = new System.Drawing.Point(1230, 0);
+            this.btnJanelar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnJanelar.Name = "btnJanelar";
+            this.btnJanelar.Size = new System.Drawing.Size(25, 25);
+            this.btnJanelar.TabIndex = 132;
+            this.btnJanelar.Text = "[]";
+            this.btnJanelar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnJanelar.UseVisualStyleBackColor = false;
+            this.btnJanelar.Click += new System.EventHandler(this.btnJanelar_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(1205, 0);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(25, 25);
+            this.button3.TabIndex = 133;
+            this.button3.Text = "-";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictBoxImg1
             // 
@@ -461,13 +512,18 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1280, 680);
-            this.Controls.Add(this.button2);
+            this.ControlBox = false;
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnJanelar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictBoxImg1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "btnEspelharDiagonal";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulário Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -524,7 +580,11 @@
         private System.Windows.Forms.ToolStripMenuItem aberturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fechamentoToolStripMenuItem;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnJanelar;
+        private System.Windows.Forms.ToolStripMenuItem exibirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dividirATelaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirModaisToolStripMenuItem;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictBoxImg1;
     }
 }
