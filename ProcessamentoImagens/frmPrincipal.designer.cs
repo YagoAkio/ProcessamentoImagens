@@ -77,6 +77,9 @@
             this.btnJanelar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictBoxImg1 = new System.Windows.Forms.PictureBox();
+            this.definirElementoEstruturanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.padrãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personalizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxImg1)).BeginInit();
             this.SuspendLayout();
@@ -375,6 +378,7 @@
             // morfologiaToolStripMenuItem
             // 
             this.morfologiaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.definirElementoEstruturanteToolStripMenuItem,
             this.dilatacaoToolStripMenuItem,
             this.erosãoToolStripMenuItem,
             this.aberturaToolStripMenuItem,
@@ -387,28 +391,28 @@
             // dilatacaoToolStripMenuItem
             // 
             this.dilatacaoToolStripMenuItem.Name = "dilatacaoToolStripMenuItem";
-            this.dilatacaoToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.dilatacaoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dilatacaoToolStripMenuItem.Text = "Dilatação";
             this.dilatacaoToolStripMenuItem.Click += new System.EventHandler(this.dilatacaoToolStripMenuItem_Click);
             // 
             // erosãoToolStripMenuItem
             // 
             this.erosãoToolStripMenuItem.Name = "erosãoToolStripMenuItem";
-            this.erosãoToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.erosãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.erosãoToolStripMenuItem.Text = "Erosão";
             this.erosãoToolStripMenuItem.Click += new System.EventHandler(this.erosãoToolStripMenuItem_Click);
             // 
             // aberturaToolStripMenuItem
             // 
             this.aberturaToolStripMenuItem.Name = "aberturaToolStripMenuItem";
-            this.aberturaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.aberturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aberturaToolStripMenuItem.Text = "Abertura";
             this.aberturaToolStripMenuItem.Click += new System.EventHandler(this.aberturaToolStripMenuItem_Click);
             // 
             // fechamentoToolStripMenuItem
             // 
             this.fechamentoToolStripMenuItem.Name = "fechamentoToolStripMenuItem";
-            this.fechamentoToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.fechamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fechamentoToolStripMenuItem.Text = "Fechamento";
             this.fechamentoToolStripMenuItem.Click += new System.EventHandler(this.fechamentoToolStripMenuItem_Click);
             // 
@@ -425,14 +429,14 @@
             // dividirATelaToolStripMenuItem
             // 
             this.dividirATelaToolStripMenuItem.Name = "dividirATelaToolStripMenuItem";
-            this.dividirATelaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.dividirATelaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dividirATelaToolStripMenuItem.Text = "Dividir a tela";
             this.dividirATelaToolStripMenuItem.Click += new System.EventHandler(this.dividirATelaToolStripMenuItem_Click);
             // 
             // abrirModaisToolStripMenuItem
             // 
             this.abrirModaisToolStripMenuItem.Name = "abrirModaisToolStripMenuItem";
-            this.abrirModaisToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.abrirModaisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirModaisToolStripMenuItem.Text = "Abrir Modais";
             this.abrirModaisToolStripMenuItem.Click += new System.EventHandler(this.abrirModaisToolStripMenuItem_Click);
             // 
@@ -503,6 +507,28 @@
             this.pictBoxImg1.TabStop = false;
             this.pictBoxImg1.Click += new System.EventHandler(this.pictBoxImg1_Click);
             this.pictBoxImg1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.maisConfiguracaoDaImagem_RightClick);
+            // 
+            // definirElementoEstruturanteToolStripMenuItem
+            // 
+            this.definirElementoEstruturanteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.padrãoToolStripMenuItem,
+            this.personalizarToolStripMenuItem});
+            this.definirElementoEstruturanteToolStripMenuItem.Name = "definirElementoEstruturanteToolStripMenuItem";
+            this.definirElementoEstruturanteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.definirElementoEstruturanteToolStripMenuItem.Text = "Definir EE";
+            // 
+            // padrãoToolStripMenuItem
+            // 
+            this.padrãoToolStripMenuItem.Name = "padrãoToolStripMenuItem";
+            this.padrãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.padrãoToolStripMenuItem.Text = "Padrão";
+            // 
+            // personalizarToolStripMenuItem
+            // 
+            this.personalizarToolStripMenuItem.Name = "personalizarToolStripMenuItem";
+            this.personalizarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personalizarToolStripMenuItem.Text = "Personalizar";
+            this.personalizarToolStripMenuItem.Click += new System.EventHandler(this.personalizarToolStripMenuItem_Click);
             // 
             // btnEspelharDiagonal
             // 
@@ -586,6 +612,9 @@
         private System.Windows.Forms.ToolStripMenuItem abrirModaisToolStripMenuItem;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictBoxImg1;
+        private System.Windows.Forms.ToolStripMenuItem definirElementoEstruturanteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem padrãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem personalizarToolStripMenuItem;
     }
 }
 

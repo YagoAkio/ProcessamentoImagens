@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Filtros.cs" />
+    <Compile Include="formConfigEE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formConfigEE.Designer.cs">
+      <DependentUpon>formConfigEE.cs</DependentUpon>
+    </Compile>
     <Compile Include="formImagem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,8 +71,12 @@
     <Compile Include="ModalConfig.Designer.cs">
       <DependentUpon>ModalConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Morfologia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formConfigEE.resx">
+      <DependentUpon>formConfigEE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formImagem.resx">
       <DependentUpon>formImagem.cs</DependentUpon>
     </EmbeddedResource>

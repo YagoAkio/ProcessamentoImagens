@@ -242,7 +242,25 @@ namespace ProcessamentoImagens
         {
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            Filtros.DilatacaoSemDMA(imageBitmap, imgDest);
+            int[][] ee = new int[][]
+            {
+                new int[] { 1, 1, 1, 1, 1 },
+                new int[] { 1, 1, 1, 1, 1 },
+                new int[] { 1, 1, 1, 1, 1 },
+                new int[] { 1, 1, 1, 1, 1 },
+                new int[] { 1, 1, 1, 1, 1 },
+                new int[] { 1, 1, 1, 1, 1 },
+                new int[] { 1, 1, 1, 1, 1 },
+                new int[] { 1, 1, 1, 1, 1 },
+                new int[] { 1, 1, 1, 1, 1 }
+            };
+            List<int> pontoCentral = new List<int> { 2, 2 };  // Ponto central no meio da matriz 3x3
+
+            // Criar instância da classe Morfologia e chamar o método de dilatação
+            Morfologia morfologia = new Morfologia(ee, pontoCentral);
+            morfologia.Dilatacao(imageBitmap, imgDest);
+
+            // Atualizar a imagem no PictureBox
             pictBoxImg1.Image = imgDest;
         }
 
@@ -403,6 +421,12 @@ namespace ProcessamentoImagens
             {
                 isDragging = false; // O arrasto terminou
             }
+        }
+
+        private void personalizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formConfigEE form = new formConfigEE();
+            form.ShowDialog();
         }
     }
 }
